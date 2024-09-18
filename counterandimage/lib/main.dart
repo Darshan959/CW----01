@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -33,10 +33,20 @@ class _MyHomePageState extends State<MyHomePage> {
   // Variables for Task 1 (Counter)
   int _counter = 0;
 
+  // Variables for Task 2 (Image Toggle)
+  bool _isImageOne = true;
+
   // Function to increment counter (Task 1)
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  // Function to toggle images (Task 2)
+  void _toggleImage() {
+    setState(() {
+      _isImageOne = !_isImageOne;
     });
   }
 
@@ -60,6 +70,21 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(height: 20),
+
+            // Task 2: Image Display
+            Image.asset(
+              _isImageOne ? 'assets/image1.png' : 'assets/image2.png',
+              width: 200,
+              height: 200,
+            ),
+            const SizedBox(height: 20),
+
+            // Task 2: Toggle Button
+            ElevatedButton(
+              onPressed: _toggleImage,
+              child: const Text('Toggle Image'),
             ),
           ],
         ),
