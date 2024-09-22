@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // Task 2: Image Display
             Image.asset(
-              _isImageOne ? 'assets/image1.png' : 'assets/image2.png',
+              _isImageOne ? 'images/fcb.jpg' : 'images/chase.jpg',
               width: 200,
               height: 200,
             ),
